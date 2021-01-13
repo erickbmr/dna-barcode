@@ -26,13 +26,13 @@ def dna_to_barcode(path):
 
     for b in dna:
         if pixels_counter < len(dna):
-            if b == 'a':
+            if b.lower() == 'a':
                 bar = plotBar(Image, pixels_counter, adenine_color)
-            elif b == 't':
+            elif b.lower() == 't':
                 bar = plotBar(Image, pixels_counter, thymine_color)
-            elif b == 'c':
+            elif b.lower() == 'c':
                 bar = plotBar(Image, pixels_counter, cytosine_color)
-            elif b == 'g':
+            elif b.lower() == 'g':
                 bar = plotBar(Image, pixels_counter, guanine_color)
             
             barcode.paste(bar, (pixels_counter, 0))
