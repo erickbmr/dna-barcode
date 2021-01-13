@@ -1,7 +1,7 @@
 from PIL import Image
 
 #func for create each bar
-def plotBar(image, width, color, heigth=100):
+def plotBar(image, width, color, heigth=60):
     return image.new("RGB", (width, heigth), color)
 
 #main function
@@ -19,13 +19,13 @@ def dna_to_barcode(path):
     cytosine_color = "rgb(0,0,248)" #blue
 
     #create the full image
-    barcode = Image.new("RGB", ((len(dna) * 2), 50))
+    barcode = Image.new("RGB", (len(dna), 60))
 
     #variable for save the next drawable point in canvas
-    pixels_counter = 0
+    pixels_counter = 1
 
     for b in dna:
-        if pixels_counter < (len(dna) * 2):
+        if pixels_counter < len(dna):
             if b == 'a':
                 bar = plotBar(Image, pixels_counter, adenine_color)
             elif b == 't':
@@ -37,7 +37,7 @@ def dna_to_barcode(path):
             
             barcode.paste(bar, (pixels_counter, 0))
 
-            pixels_counter += 2
+            pixels_counter += 1
 
     barcode.show()
     barcode.save('../output/barcode.png', 'PNG')
