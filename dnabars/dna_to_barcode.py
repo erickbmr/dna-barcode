@@ -40,7 +40,7 @@ def dna_to_barcode(path):
             pixels_counter += 2
 
     barcode.show()
-    barcode.save('../barcodes/barcode.png', 'PNG')
+    barcode.save('../output/barcode.png', 'PNG')
 
 
 path = '../docs/dna_sequence.txt'
